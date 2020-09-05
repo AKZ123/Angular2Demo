@@ -1,12 +1,27 @@
 import { Component } from '@angular/core';   //       p23.3
 
-@Component({
+@Component({                                //         p30.4
     selector: 'my-app',
-    template: `<list-employee></list-employee>`
+    template: `<div style="padding:5px">
+                    <ul class="nav nav-tabs">
+                        <li routerLinkActive="active"><a routerLink="home">Home</a></li>
+                        <li routerLinkActive="active"><a routerLink="employees">Employees</a></li>
+                    </ul>
+                    <router-outlet></router-outlet>
+                </div>`
 })
 export class AppComponent {
     name: string = 'Tom';
 }
+
+
+//@Component({                              //        p23.3
+//    selector: 'my-app',
+//    template: `<list-employee></list-employee>`
+//})
+//export class AppComponent {
+//    name: string = 'Tom';
+//}
 
 
 ////import { Component } from '@angular/core';

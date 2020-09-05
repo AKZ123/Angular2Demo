@@ -14,12 +14,19 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<list-employee></list-employee>"
+            template: "<div style=\"padding:5px\">\n                    <ul class=\"nav nav-tabs\">\n                        <li routerLinkActive=\"active\"><a routerLink=\"home\">Home</a></li>\n                        <li routerLinkActive=\"active\"><a routerLink=\"employees\">Employees</a></li>\n                    </ul>\n                    <router-outlet></router-outlet>\n                </div>"
         })
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+//@Component({                              //        p23.3
+//    selector: 'my-app',
+//    template: `<list-employee></list-employee>`
+//})
+//export class AppComponent {
+//    name: string = 'Tom';
+//}
 ////import { Component } from '@angular/core';
 ////@Component({
 ////    selector: 'my-app',
