@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular2Demo", "Angular2Demo\Angular2Demo.csproj", "{78F71458-4CF9-4ED9-A2E8-5C108DB28ACC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpWabAPISErvice", "EmpWabAPISErvice\EmpWabAPISErvice.csproj", "{E09754C6-3428-4A27-810E-9C20DA0BDF74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{78F71458-4CF9-4ED9-A2E8-5C108DB28ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78F71458-4CF9-4ED9-A2E8-5C108DB28ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78F71458-4CF9-4ED9-A2E8-5C108DB28ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E09754C6-3428-4A27-810E-9C20DA0BDF74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E09754C6-3428-4A27-810E-9C20DA0BDF74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E09754C6-3428-4A27-810E-9C20DA0BDF74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E09754C6-3428-4A27-810E-9C20DA0BDF74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
