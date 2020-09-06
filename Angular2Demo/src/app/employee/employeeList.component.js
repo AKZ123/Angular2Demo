@@ -55,7 +55,6 @@ var EmployeeListComponent = /** @class */ (function () {
             selector: 'list-employee',
             templateUrl: 'app/employee/employeeList.component.html',
             styleUrls: ['app/employee/employeeList.component.css'],
-            providers: [employee_service_1.EmployeeService] //p25.2.4
         }),
         __metadata("design:paramtypes", [employee_service_1.EmployeeService])
     ], EmployeeListComponent);

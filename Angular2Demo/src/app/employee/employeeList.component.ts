@@ -7,7 +7,7 @@ import { EmployeeService } from './employee.service';  //p25.2.1
     selector: 'list-employee',
     templateUrl: 'app/employee/employeeList.component.html',
     styleUrls: ['app/employee/employeeList.component.css'],
-    providers: [EmployeeService]   //p25.2.4
+    //providers: [EmployeeService]   //p25.2.4    , 31.6.0
 })
 export class EmployeeListComponent implements OnInit {  //p25.4.2
     ///employees: any[];

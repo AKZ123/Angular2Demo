@@ -1,6 +1,42 @@
-﻿<!-- p6 -->
+﻿<!-- p31.5.1 -->
 
-<table>
+<table *ngIf="employee">
+    <thead>
+        <tr>
+            <th colspan="2">
+                Employee Details
+            </th>
+        </tr>
+    </thead>
+    <tr>
+        <td>Employee Code</td>
+        <td>{{employee.code}}</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>{{employee.name}}</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>{{employee.gender}}</td>
+    </tr>
+    <tr>
+        <td>Annual Salary</td>
+        <td>{{employee.annualSalary}}</td>
+    </tr>
+    <tr>
+        <td>Date of Birth</td>
+        <td>{{employee.dateOfBirth}}</td>
+    </tr>
+</table>
+<div *ngIf="!employee">
+    {{statusMessage}}
+</div>
+
+
+<!-- p6 -->
+
+<!--<table>
     <tr>
         <td>First Name</td>
         <td>{{firstName}}</td>
@@ -19,4 +55,4 @@
     </tr>
 </table>
 <br />
-<button (click)="toggelDetails()">Show Detail</button>
+<button (click)="toggelDetails()">Show Detail</button>-->

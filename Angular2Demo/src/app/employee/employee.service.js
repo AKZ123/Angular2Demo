@@ -26,6 +26,11 @@ var EmployeeService = /** @class */ (function () {
             //map operator taking response and transporm it to IEmployee[] array
             .catch(this.handleError); //p28.2.1
     };
+    EmployeeService.prototype.getEmployeeByCode = function (empCode) {
+        return this._http.get("http://localhost:61104/api/Employees/" + empCode)
+            .map(function (response) { return response.json(); })
+            .catch(this.handleError);
+    };
     EmployeeService.prototype.handleError = function (error) {
         console.error(error);
         return Observable_1.Observable.throw(error);

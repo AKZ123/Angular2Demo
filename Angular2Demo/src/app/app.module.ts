@@ -14,9 +14,12 @@ import { SimpleComponent } from './Others/simple.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './Others/pageNotFound.component';
 
+import { EmployeeService } from './employee/employee.service';   //p31.6.1
+
 const appRoutes: Routes = [                                //p30.3.2                 
-    { path: 'employees', component: EmployeeListComponent },
     { path: 'home', component: HomeComponent },
+    { path: 'employees', component: EmployeeListComponent },
+    { path: 'employees/:code', component: EmployeeComponent },  //31.1
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: '**', component: PageNotFoundComponent }
 ];
@@ -24,6 +27,7 @@ const appRoutes: Routes = [                                //p30.3.2
 @NgModule({                                                     //p30.3.3
     imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
     declarations: [AppComponent, EmployeeComponent, EmployeeListComponent, EmployeeTitlePipe, EmployeeCountComponent, SimpleComponent, HomeComponent, PageNotFoundComponent],
-    bootstrap:    [ AppComponent ]
+    bootstrap: [AppComponent],
+    providers: [EmployeeService]     //p31.6.2
 })
 export class AppModule { }
