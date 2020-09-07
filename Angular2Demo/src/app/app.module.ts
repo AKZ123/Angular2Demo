@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './Others/pageNotFound.component';
 
 import { EmployeeService } from './employee/employee.service';   //p31.6.1
+import { UserPreferencesService } from './employee/userPreferences';//p34.3.1
 
 const appRoutes: Routes = [                                //p30.3.2                 
     { path: 'home', component: HomeComponent },
@@ -28,6 +29,6 @@ const appRoutes: Routes = [                                //p30.3.2
     imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
     declarations: [AppComponent, EmployeeComponent, EmployeeListComponent, EmployeeTitlePipe, EmployeeCountComponent, SimpleComponent, HomeComponent, PageNotFoundComponent],
     bootstrap: [AppComponent],
-    providers: [EmployeeService]     //p31.6.2
+    providers: [EmployeeService, UserPreferencesService]     //p31.6.2
 })
 export class AppModule { }
