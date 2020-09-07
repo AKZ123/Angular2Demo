@@ -22,8 +22,7 @@ var EmployeeService = /** @class */ (function () {
     } //p27.2.2
     EmployeeService.prototype.getEmployees = function () {
         return this._http.get("http://localhost:61104/api/Employees")
-            .map(function (response) { return response.json(); })
-            //map operator taking response and transporm it to IEmployee[] array
+            .map(function (response) { return response.json(); }) //map operator taking response and transporm it to IEmployee[] array
             .catch(this.handleError); //p28.2.1
     };
     EmployeeService.prototype.getEmployeeByCode = function (empCode) {

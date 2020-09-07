@@ -15,8 +15,7 @@ export class EmployeeService {
 
     getEmployees(): Observable<IEmployee[]> {
         return this._http.get("http://localhost:61104/api/Employees")
-            .map((response: Response) => <IEmployee[]>response.json())
-            //map operator taking response and transporm it to IEmployee[] array
+            .map((response: Response) => <IEmployee[]>response.json())       //map operator taking response and transporm it to IEmployee[] array
             .catch(this.handleError);     //p28.2.1
     }
 

@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';  //p6
 import { IEmployee } from './employee';     //p31.4.1
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';  //p37.2.1
 import { EmployeeService } from './employee.service';
 
 @Component({
@@ -13,8 +13,8 @@ export class EmployeeComponent implements OnInit {    //p31.4.2
 
     employee: IEmployee;
     statusMessage: string ='Loading data .Please wait...';
-
-    constructor(private _employeeService: EmployeeService, private _activatedRoute: ActivatedRoute) {
+    //                                                                                                      p37.2.2
+    constructor(private _employeeService: EmployeeService, private _activatedRoute: ActivatedRoute, private _router: Router) {
 
     }
 
@@ -37,6 +37,10 @@ export class EmployeeComponent implements OnInit {    //p31.4.2
                 this.statusMessage = 'Problem with the server. Please try again after sometime';
                 console.log(error);
             });
+    }
+
+    onBackButtonClick(): void {                     //37.2.3
+        this._router.navigate(['/employees']);
     }
 
     //firstName: string = 'Tom';

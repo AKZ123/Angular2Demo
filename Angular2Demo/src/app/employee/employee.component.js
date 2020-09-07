@@ -10,12 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core"); //p6
-var router_1 = require("@angular/router");
+var router_1 = require("@angular/router"); //p37.2.1
 var employee_service_1 = require("./employee.service");
 var EmployeeComponent = /** @class */ (function () {
-    function EmployeeComponent(_employeeService, _activatedRoute) {
+    //                                                                                                      p37.2.2
+    function EmployeeComponent(_employeeService, _activatedRoute, _router) {
         this._employeeService = _employeeService;
         this._activatedRoute = _activatedRoute;
+        this._router = _router;
         this.statusMessage = 'Loading data .Please wait...';
     }
     EmployeeComponent.prototype.ngOnInit = function () {
@@ -38,13 +40,16 @@ var EmployeeComponent = /** @class */ (function () {
             console.log(error);
         });
     };
+    EmployeeComponent.prototype.onBackButtonClick = function () {
+        this._router.navigate(['/employees']);
+    };
     EmployeeComponent = __decorate([
         core_1.Component({
             selector: 'my-employee',
             templateUrl: 'app/employee/employee.component.html',
             styleUrls: ['app/employee/employee.component.css']
         }),
-        __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute])
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService, router_1.ActivatedRoute, router_1.Router])
     ], EmployeeComponent);
     return EmployeeComponent;
 }());
