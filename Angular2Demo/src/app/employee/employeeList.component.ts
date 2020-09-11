@@ -12,7 +12,7 @@ import { EmployeeService } from './employee.service';  //p25.2.1
 })
 export class EmployeeListComponent implements OnInit {  //p25.4.2
     ///employees: any[];
-    employees: IEmployee[];  //p25.2.2
+    employees: IEmployee[];  //p25.2.2   this (employees) property use on html page
 
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = 'Loading data. Please wait...';   //p28.3.1

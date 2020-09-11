@@ -28,14 +28,23 @@ var EmployeeComponent = /** @class */ (function () {
         //        this.statusMessage = 'Problem with the server. Please try again after sometime';
         //        console.log(error);
         //    });
-        this._employeeService.getEmployeeByCode(empCode).subscribe(function (employeData) {
-            if (employeData == null) {
+        this._employeeService.getEmployeeByCode(empCode)
+            //.subscribe((employeeData) => {
+            .then(function (employeeData) {
+            if (employeeData == null) {
                 _this.statusMessage = 'Employee with the specified Employee Code does not exist';
             }
             else {
-                _this.employee = employeData;
+                _this.employee = employeeData;
             }
-        }, function (error) {
+        } //,
+        //(error) => {
+        //    this.statusMessage = 'Problem with the server. Please try again after sometime';
+        //    //console.log(error);
+        //    console.error(error);
+        //}
+        //);
+        ).catch(function (error) {
             _this.statusMessage = 'Problem with the server. Please try again after sometime';
             console.log(error);
         });

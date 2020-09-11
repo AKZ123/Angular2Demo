@@ -25,18 +25,26 @@ export class EmployeeComponent implements OnInit {    //p31.4.2
         //        this.statusMessage = 'Problem with the server. Please try again after sometime';
         //        console.log(error);
         //    });
-        this._employeeService.getEmployeeByCode(empCode).subscribe(
-            (employeData) => {
-                if (employeData == null) {
+        this._employeeService.getEmployeeByCode(empCode)
+            //.subscribe((employeeData) => {
+            .then((employeeData) => {                   //p38.2.1
+
+                if (employeeData == null) {
                     this.statusMessage = 'Employee with the specified Employee Code does not exist';
                 } else {
-                    this.employee = employeData
+                    this.employee = employeeData
                 }
-            },
-            (error) => {
-                this.statusMessage = 'Problem with the server. Please try again after sometime';
-                console.log(error);
-            });
+            } //,
+            //(error) => {
+            //    this.statusMessage = 'Problem with the server. Please try again after sometime';
+            //    //console.log(error);
+            //    console.error(error);
+            //}
+         //);
+        ).catch((error) => {                            //38.2.2
+            this.statusMessage = 'Problem with the server. Please try again after sometime';
+            console.log(error);
+        });
     }
 
     onBackButtonClick(): void {                     //37.2.3

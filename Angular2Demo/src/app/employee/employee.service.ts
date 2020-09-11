@@ -6,7 +6,8 @@ import { Http, Response } from '@angular/http';  //p27.2.1
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';  //p28.1
-import 'rxjs/add/Observable/throw';
+//import 'rxjs/add/Observable/throw';
+import 'rxjs/add/operator/toPromise';  //p38.1.1
 
 @Injectable()
 export class EmployeeService {
@@ -14,16 +15,23 @@ export class EmployeeService {
     constructor(private _http: Http) { } //p27.2.2
 
     getEmployees(): Observable<IEmployee[]> {
-        return this._http.get("http://localhost:61104/api/Employees")
+        return this._http.get('http://localhost:61104/api/Employees')
             .map((response: Response) => <IEmployee[]>response.json())       //map operator taking response and transporm it to IEmployee[] array
             .catch(this.handleError);     //p28.2.1
     }
 
 
-    getEmployeeByCode(empCode: string): Observable<IEmployee> {                //p31.3
+    //getEmployeeByCode(empCode: string): Observable<IEmployee> {                //p31.3
+    getEmployeeByCode(empCode: string): Promise <IEmployee> {               //p38.1.2
         return this._http.get("http://localhost:61104/api/Employees/" + empCode)
             .map((response: Response) => <IEmployee>response.json())
-            .catch(this.handleError);  
+            .toPromise();
+            //.catch(this.handleError);  
+    }
+
+    handlePromiseError(error: Response) {       //p38.1.3
+        console.error(error);
+        throw(error);
     }
 
     handleError(error: Response) {       //p28.2.2

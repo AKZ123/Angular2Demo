@@ -1,4 +1,5 @@
-﻿<employee-count *ngIf="employees"
+﻿                <!-- p27, -->
+<employee-count *ngIf="employees"
                 [all]="getTotalEmployeesCount()"
                 [male]="getTotalMaleEmployeesCount()"
                 [female]="getTotalFemaleEmployeesCount()"
@@ -21,7 +22,7 @@
             <th>Odd</th>-->
         </tr>
     </thead>
-    <tbody>
+    <tbody>                             <!--  p16 -->
         <ng-container *ngFor="let employee of employees;">
             <!--<tr *ngFor="let employee of employees;trackBy:trackByEmpCode; let i=index; let isFirst=first; let isLast=last; let isEven=even; let isOdd=odd;">-->
             <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton==employee.gender">

@@ -15,20 +15,27 @@ var http_1 = require("@angular/http"); //p27.2.1
 var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/catch"); //p28.1
-require("rxjs/add/Observable/throw");
+//import 'rxjs/add/Observable/throw';
+require("rxjs/add/operator/toPromise"); //p38.1.1
 var EmployeeService = /** @class */ (function () {
     function EmployeeService(_http) {
         this._http = _http;
     } //p27.2.2
     EmployeeService.prototype.getEmployees = function () {
-        return this._http.get("http://localhost:61104/api/Employees")
+        return this._http.get('http://localhost:61104/api/Employees')
             .map(function (response) { return response.json(); }) //map operator taking response and transporm it to IEmployee[] array
             .catch(this.handleError); //p28.2.1
     };
+    //getEmployeeByCode(empCode: string): Observable<IEmployee> {                //p31.3
     EmployeeService.prototype.getEmployeeByCode = function (empCode) {
         return this._http.get("http://localhost:61104/api/Employees/" + empCode)
             .map(function (response) { return response.json(); })
-            .catch(this.handleError);
+            .toPromise();
+        //.catch(this.handleError);  
+    };
+    EmployeeService.prototype.handlePromiseError = function (error) {
+        console.error(error);
+        throw (error);
     };
     EmployeeService.prototype.handleError = function (error) {
         console.error(error);
